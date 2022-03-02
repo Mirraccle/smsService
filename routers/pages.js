@@ -18,7 +18,7 @@ const isAuth = (req, res, next) => {
 }
 
 
-pagesRouter.get('/', async (req, res) => {
+pagesRouter.get('/', isAuth, async (req, res) => {
     req.session.isAuth = true
     const messages = await Message.find().limit(10).sort({$natural:-1}).lean(true)
     const templates = await Template.find().lean(true);
@@ -30,7 +30,7 @@ pagesRouter.get('/', async (req, res) => {
     })
 })
 
-pagesRouter.get('/templates', async (req, res) => {
+pagesRouter.get('/templates', isAuth, async (req, res) => {
     const templates = await Template.find().lean(true)
     res.render('templates', {
         title: 'Шаблоны',
@@ -39,7 +39,7 @@ pagesRouter.get('/templates', async (req, res) => {
     })
 })
 
-pagesRouter.get('/users', async (req, res) => {
+pagesRouter.get('/users', isAuth, async (req, res) => {
     const users = await User.find().lean(true)
     res.render('users', {
         title: 'Пользователи',
@@ -55,7 +55,7 @@ const notAuth = (req, res, next) => {
     next()
 }
 
-pagesRouter.get('/auth', async (req, res) => {
+pagesRouter.get('/auth', notAuth, async (req, res) => {
     res.render('auth', {
         title: 'Вход',
         isAuth: true
