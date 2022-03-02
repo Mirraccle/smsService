@@ -39,14 +39,14 @@ pagesRouter.get('/templates', isAuth, async (req, res) => {
     })
 })
 
-// pagesRouter.get('/users', isAuth, async (req, res) => {
-//     const users = await User.find().lean(true)
-//     res.render('users', {
-//         title: 'Пользователи',
-//         isUsers: true,
-//         users
-//     })
-// })
+pagesRouter.get('/users', async (req, res) => {
+    const users = await User.find().lean(true)
+    res.render('users', {
+        title: 'Пользователи',
+        isUsers: true,
+        users
+    })
+})
 
 const notAuth = (req, res, next) => {
     if (req.session.isAuth) {
