@@ -1,0 +1,31 @@
+{{#if isAuth}}
+
+{{else}}
+    <div class="container">
+        <nav class="teal lighten-1">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    {{#if isIndex}}
+                        <li><a class="active" href="/">Главная страница</a></li>
+                    {{else}}
+                        <li><a href="/">Главная страница</a></li>
+                    {{/if}}
+
+                    {{#if isTemplates}}
+                        <li><a class="active" href="/templates">Шаблоны</a></li>
+                    {{else}}
+                        <li><a href="/templates">Шаблоны</a></li>
+                    {{/if}}
+
+                    {{#if isUsers}}
+                        <li><a class="active" href="/users">Пользователи</a></li>
+                    {{else}}
+                        <li><a href="/users">Пользователи</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </div>
+{{/if}}
+
+
