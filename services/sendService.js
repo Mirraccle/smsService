@@ -5,7 +5,7 @@ axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 axios.defaults.headers.post['Access-Control-Allow-Methods'] = '*';
 class SendService{
-    async send(message) {
+    async send(message, user) {
         let data = {
             "login": "sms0034ts_1",
             "pwd": "12345qaz",
@@ -16,12 +16,14 @@ class SendService{
         }
         const createdMessage = await axios.post(linkForSms, JSON.stringify({...data}));
         const messageObj = {
+            user: user,
             number: message["CdPN"],
             content: message["text"],
             date: new Date()
         }
         await SendSms.create(messageObj)
         return JSON.stringify(messageObj)
+        console.log(messageObj)
 
     }
 

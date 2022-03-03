@@ -46,3 +46,27 @@ textarea{
     display: flex;
     justify-content: center;
 }
+
+.logout{
+    margin-left: 530px;
+}
+
+.logout-button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.logout-icon{
+    height: 60px !important;
+    line-height: 60px !important;
+    color: #fff;
+}
+
+.settings-wrapper{
+    margin-top: 70px;
+}

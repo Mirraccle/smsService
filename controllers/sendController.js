@@ -7,7 +7,7 @@ class SendController{
             if (isNaN(req.body["CdPN"])) {
                 return res.redirect('/')
             }
-            const message = await sendService.send(req.body);
+            const message = await sendService.send(req.body, req.session.user);
             // res.end(message)
             res.status(200)
             res.redirect('/')

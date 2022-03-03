@@ -10,12 +10,8 @@ router.post('/registration',[
     check('password', "Пароль должен быть больше 4 символов и меньше 10 символов").isLength({min: 4, max: 10})
 ], controller.registration)
 router.post('/login', controller.login)
+router.post('/logout', controller.logout)
 router.get('/users', controller.getUsers)
-
-router.get('/me', async (req, res) => {
-    console.log(req.user.id)
-    const user = await User.findById(req.user.id).select('-password')
-    res.send(user)
-})
+router.post('/change', controller.changePassword)
 
 module.exports = router

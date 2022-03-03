@@ -57,10 +57,21 @@ class authController{
             // return res.json(token)
             // return res.redirect('/')
             req.session.isAuth = true
+            req.session.user = username
             res.redirect('/')
         } catch (e) {
             console.log(e)
             res.status(400).json({message: 'Login error'})
+        }
+    }
+    async logout(req, res) {
+        try {
+            req.session.destroy((err) => {
+                if (err) throw err
+                res.redirect('/auth')
+            })
+        } catch (e) {
+            console.log(e)
         }
     }
     async getUsers(req, res) {
@@ -70,6 +81,22 @@ class authController{
         } catch (e) {
             console.log(e)
         }
+    }
+    async changePassword(req, res) {
+        const username = req.session.user
+        // let data = {
+        //     username: username
+        // }
+        const user = await User.findOne({username})
+        const {oldPassword, newPassword} = req.body
+        // data = {...data, oldPassword, newPassword}
+        const validPassword = bcrypt.compareSync(oldPassword, user.password)
+        if (!validPassword) {
+            return res.status(400).json({message: 'Введен неверный пароль, вернитесь назад'})
+        }
+        const hashPassword = bcrypt.hashSync(newPassword, 7)
+        const updatedUser = await User.findOneAndUpdate({username}, {password: hashPassword})
+        return res.redirect('/')
     }
 }
 

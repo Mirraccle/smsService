@@ -1,0 +1,43 @@
+<h2>Страница шаблонов</h2>
+<!--<div class="row">-->
+<!--    <form action="api/templates/" method="post" class="form col s12">-->
+<!--        <div class="row">-->
+<!--            <div class="input-field col s7">-->
+<!--                <input name="title" type="text" id="template-title">-->
+<!--                <label for="template-title">Введите название шаблона</label>-->
+<!--            </div>-->
+<!--            <div class="input-field col s7">-->
+<!--                <textarea id="template-textarea" name="content" class="materialize-textarea"></textarea>-->
+<!--                <label for="template-textarea" class="text-label">Введите текст шаблона</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <button class="btn">Создать</button>-->
+<!--    </form>-->
+<!--</div>-->
+
+
+
+{{#if templates.length}}
+    <div class="templates-wrapper">
+        <div class="row">
+            {{#each templates}}
+
+                <div class="col s4">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">{{title}}</span>
+                            <p class="template-text">{{content}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            {{/each}}
+        </div>
+    </div>
+{{else}}
+    <p>Еще нет созданных шаблонов</p>
+{{/if}}
+

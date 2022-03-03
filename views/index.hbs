@@ -39,10 +39,12 @@
 </div>
 
 
+
 {{#if messages.length}}
     <table>
         <thead>
         <tr>
+            <th>Имя пользователя</th>
             <th>Номер телефона</th>
             <th>Текст сообщения</th>
             <th>Дата и время</th>
@@ -51,6 +53,7 @@
         <tbody>
         {{#each messages}}
             <tr>
+                <td>{{user}}</td>
                 <td>{{number}}</td>
                 <td>{{content}}</td>
                 <td>{{date}}</td>

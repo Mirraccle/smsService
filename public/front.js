@@ -9,9 +9,9 @@ const label = document.querySelector('.text-label')
 
 
 textArea.disabled = true
-// textArea.addEventListener('click', function (){
-//     textArea.disabled = true
-// })
+textArea.addEventListener('click', function (){
+    textArea.disabled = true
+})
 
 
 function validateValue(){

@@ -1,0 +1,44 @@
+<h2>Страница пользователей</h2>
+
+<!--<div class="row">-->
+<!--    <form action="auth/registration/" method="post" class="form col s12">-->
+<!--        <div class="row">-->
+<!--            <div class="input-field col s7">-->
+<!--                <input name="username" type="text" id="username-input">-->
+<!--                <label for="username-input">Введите имя пользователя</label>-->
+<!--            </div>-->
+<!--            <div class="input-field col s7">-->
+<!--                <input name="password" type="password" id="password-input">-->
+<!--                <label for="password-input">Введите пароль пользователя</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <button class="btn">Создать</button>-->
+<!--    </form>-->
+<!--</div>-->
+
+<div class="users-wrapper">
+    {{#if users.length}}
+        <table>
+            <thead>
+            <tr>
+                <th>Id пользователя</th>
+                <th>Имя пользователя</th>
+                <th>Роль пользователя</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each users}}
+                <tr>
+                    <td>{{_id}}</td>
+                    <td>{{username}}</td>
+                    <td>{{roles}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
+    {{else}}
+        <p>Пока нет зарегистрированных пользователей</p>
+    {{/if}}
+</div>
+
