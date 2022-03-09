@@ -6,7 +6,7 @@ const card = document.querySelectorAll('.card')
 const templateText = document.querySelectorAll('.template-text')
 const label = document.querySelector('.text-label')
 
-
+label.classList.add('active')
 
 textArea.disabled = true
 textArea.addEventListener('click', function (){

@@ -23,26 +23,39 @@
             {{#each templates}}
 
                 <div class="col s4">
-                    <div class="card blue-grey darken-1">
+                    <div class="card blue-grey darken-1" id="{{_id}}">
                         <div class="card-content white-text">
                             <span class="card-title">{{title}}</span>
                             <p class="template-text">{{content}}</p>
                         </div>
                     </div>
+                    <form action="/api/templates/delete" method="post">
+                        <input type="hidden" value="{{_id}}" name="_id">
+                        <button class="btn" type="submit">Удалить</button>
+                    </form>
+                    <button data-type="{{_id}}" class="btn update-button">Изменить</button>
+
                 </div>
 
 
 
             {{/each}}
         </div>
+        <form action="/api/templates/update" method="post">
+            <input id="updateId" type="hidden" name="_id">
+            <div class="input-field col s7">
+                <input onchange="validateValue()"  oninput="validateValue()" name="title" type="text" id="update-template-title">
+                <label class="text-label-update" for="update-template-title">Измените название шаблона</label>
+            </div>
+            <div class="input-field col s7">
+                <textarea onchange="validateValue()"  oninput="validateValue()" id="update-template-textarea" name="content" class="materialize-textarea"></textarea>
+                <label for="update-template-textarea" class="text-label-update">Измените текст шаблона</label>
+            </div>
+            <button class="save-button btn" type="submit">Сохранить</button>
+        </form>
     </div>
 {{else}}
 <p>Еще нет созданных шаблонов</p>
 {{/if}}
-
-
-<button data-target="modal1" class="btn modal-trigger">Modal</button>
-
-
 
 <script src="/templates.js"></script>

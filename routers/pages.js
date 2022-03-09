@@ -21,7 +21,7 @@ const isAuth = (req, res, next) => {
 
 pagesRouter.get('/', isAuth, async (req, res) => {
     req.session.isAuth = true
-    const messages = await Message.find().limit(10).sort({$natural:-1}).lean(true)
+    const messages = await Message.find({user:req.session.user}).limit(10).sort({$natural:-1}).lean(true)
     const templates = await Template.find().lean(true);
 
     res.render('index', {

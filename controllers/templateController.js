@@ -31,15 +31,15 @@ class TemplateController{
     async update(req, res) {
         try {
             const updatedTemplate = await TemplateService.update(req.body)
-            return res.json(updatedTemplate)
+            return res.redirect('/templates')
         } catch (e) {
             res.status(500).json(e.message)
         }
     }
     async delete(req, res) {
         try {
-            const template = await TemplateService.delete(req.params.id);
-            return res.json(template)
+            const template = await TemplateService.delete(req.body);
+            return res.redirect('/templates')
         } catch (e) {
             res.status(500).json(e)
         }

@@ -8,7 +8,7 @@ const templateRouter = new Router()
 templateRouter.post('/templates',TemplateController.create)
 templateRouter.get('/templates', TemplateController.getAll)
 templateRouter.get('/templates/:id', TemplateController.getOne)
-templateRouter.put('/templates', TemplateController.update)
-templateRouter.delete('/templates/:id', TemplateController.delete)
+templateRouter.post('/templates/update', TemplateController.update)
+templateRouter.post('/templates/delete', TemplateController.delete)
 
 module.exports = templateRouter;
