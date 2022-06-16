@@ -12,9 +12,11 @@ class SendService{
             "CgPN": "AnorCorp",
         }
         if(message) {
+            message["CdPN"] = "998" + message["CdPN"];
             data = {...data, ...message}
         }
         const createdMessage = await axios.post(linkForSms, JSON.stringify({...data}));
+        console.log(data)
         const messageObj = {
             user: user,
             number: message["CdPN"],

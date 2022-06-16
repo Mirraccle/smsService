@@ -70,3 +70,23 @@ textarea{
 .settings-wrapper{
     margin-top: 70px;
 }
+
+#tel-input-wrapper{
+    position: relative;
+}
+
+#icon_telephone{
+    padding-left: 35px;
+    width: 560px;
+}
+
+.number-prefix{
+    position: absolute;
+    left: 9px;
+    bottom: 19px;
+    font-size: 16px
+}
+
+#textarea1{
+    width: 595px;
+}

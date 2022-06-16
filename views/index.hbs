@@ -4,9 +4,9 @@
 <div class="row">
     <form action="api/sendMessage" method="post" class="form col s12">
         <div class="row">
-            <div class="input-field col s7">
+            <div class="input-field col s7" id="tel-input-wrapper">
                 <input onchange="validateValue()"  oninput="validateValue()" name="CdPN" id="icon_telephone" type="tel">
-                <label for="icon_telephone">Введите номер телефона</label>
+                <span class="number-prefix">+998</span>
             </div>
             <div class="input-field col s7">
                 <textarea onchange="validateValue()"  oninput="validateValue()"  name="text" id="textarea1" class="materialize-textarea"></textarea>
